@@ -21,6 +21,11 @@ app.get('/', (req, res)=>{
     res.send('Hello World');
 });
 
+// 에러 처리기. 미들웨어의 가장 마지막에 있어야한다.
+app.use((error, req, res, next) => {
+    res.status(500).json({ message: error.message })
+})
+
 app.listen(PORT);
 console.log(`Running on port ${PORT}`);
 
