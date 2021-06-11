@@ -66,7 +66,7 @@ describe("Product Controller Get", () => {
     it("should return 200 response", async () => {
         await productController.getProducts(req, res, next);
         expect(res.statusCode).toBe(200);
-        expect(res._isEndCalled).toBeCalledWith();
+        expect(res._isEndCalled).toBeTruthy();
     })
 
     it("should return json body in response", async () => {
